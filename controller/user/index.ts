@@ -8,14 +8,16 @@ const getUserInfo: MW = async (ctx) => {
   try {
     const res = await $userServices.getUserInfo(ctx, uid);
 
-    ctx.success({
+    return ctx.success({
       code: 200,
       data: res
     });
-
   } catch (e: any) {
     ctx.log.warning(e.message);
-    return Promise.reject(e);
+    return ctx.error({
+      ...ctx.errorInfos.FAILED_TO_GET_USER_INFO,
+      detail: e.message
+    });
   }
 };
 

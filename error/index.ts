@@ -8,11 +8,17 @@ import {
   wsErrorInfos
 } from './wsErrors';
 
-export interface ErrorInfos extends IWsErrorInfos, IUserErrorInfos {
-  // ... 可以继续扩展其他错误类型
+import {
+  ItestErrorInfos,
+  testErrorInfos
+} from './testErrotrs';
+
+export interface ErrorInfos extends IWsErrorInfos, IUserErrorInfos, ItestErrorInfos {
+  // ... 继续扩展其他错误类型
 }
 
 export default <ErrorInfos>{
   ...userErrorInfos,
-  ...wsErrorInfos
+  ...wsErrorInfos,
+  ...testErrorInfos
 };

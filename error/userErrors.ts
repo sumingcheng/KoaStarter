@@ -2,17 +2,12 @@
 import { ErrorInfo } from '../middleware/response';
 
 export interface IUserErrorInfos {
-  LOGIN_FAILED: ErrorInfo;
-  WRONG_PASSWORD: ErrorInfo;
+  FAILED_TO_GET_USER_INFO: ErrorInfo;
 }
 
 export const userErrorInfos: IUserErrorInfos = {
-  LOGIN_FAILED: {
+  FAILED_TO_GET_USER_INFO: {
     code: 10001,
-    msg: '登录失败'
-  },
-  WRONG_PASSWORD: {
-    code: 10002,
-    msg: '密码错误'
+    msg: '获取用户信息失败'
   }
 };

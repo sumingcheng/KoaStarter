@@ -6,7 +6,7 @@ import $test from '../controller/test';
 // 用户相关路由集合
 export default <Route[]>[
   [
-    Method.POST, '/mock/userInfo',
+    Method.GET, '/mock/userInfo',
     [
       $test.mockUserInfo
     ]

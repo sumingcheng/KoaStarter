@@ -1,5 +1,6 @@
 import { MW } from '../../types';
 import Mock from 'mockjs';
+
 import $userServices
   from '../../service/user';
 
@@ -23,6 +24,11 @@ const mockUserInfo: MW = async (ctx) => {
     });
   } catch (e: any) {
     ctx.log.warning(e.message);
+
+    ctx.error({
+      ...ctx.errorInfos.FAILED_TO_SIMULATE_DATA,
+      detail: e.message
+    });
   }
 };
 

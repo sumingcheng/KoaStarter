@@ -26,6 +26,11 @@ export default (seq: Sequelize) => {
       type: DataTypes.STRING,
       unique: true
     },
+    password: {
+      comment: '用户登录密码',
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     // 邮箱
     email: {
       type: DataTypes.STRING,

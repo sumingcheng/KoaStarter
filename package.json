@@ -5,10 +5,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "redis-server & cross-env NODE_ENV=dev tsx watch app.ts",
-    "build": "cross-env NODE_ENV=prod tsup",
-    "start": "cross-env NODE_ENV=prod tsx ./dist/app.js",
+    "dev:sit": "redis-server & cross-env NODE_ENV=sit tsx watch app.ts",
+    "dev:prod": "redis-server & cross-env NODE_ENV=prod tsx watch app.ts",
+    "build:sit": "cross-env NODE_ENV=sit tsup",
+    "build:prod": "cross-env NODE_ENV=prod tsup",
+    "start:sit": "cross-env NODE_ENV=sit tsx ./dist/app.js",
+    "start:prod": "cross-env NODE_ENV=prod tsx ./dist/app.js",
     "watch-server": "pm2 start npm --name 'koaStarter' --watch -- run start",
-    "pm2": "pm2 start npm --name 'koaStarter' --log-date-format 'YYYY-MM-DD HH:mm:ss' -- run start",
+    "pm2:sit": "pm2 start npm --name 'koaStarter' --log-date-format 'YYYY-MM-DD HH:mm:ss' -- run start",
+    "pm2:prod": "pm2 start npm --name 'koaStarter' --log-date-format 'YYYY-MM-DD HH:mm:ss' -- run start",
     "backup": "pm2 start tsx --name 'backup' -- ./bin/backup.ts",
     "restore": "pm2 start tsx --name 'restore' -- ./bin/restore.ts"
   },
